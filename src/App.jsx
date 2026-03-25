@@ -136,9 +136,11 @@ export default function App() {
 
           {/* Hero */}
           <section id="topo" className="hero">
-            <div className="hero-avatar" aria-hidden="true">
-              <span>MM</span>
-            </div>
+            <img
+              src="/avatar.jpeg"
+              alt="Morisson Maciel"
+              className="hero-avatar"
+            />
             <h1 className="hero-name">Morisson Marcel Ferreira Maciel</h1>
             <p className="hero-subtitle">iOS Specialist &amp; Agentic AI Engineer</p>
             <p className="hero-location">

@@ -94,22 +94,12 @@ body {
 }
 
 .hero-avatar {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
-  background: var(--text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: cover;
   margin-bottom: 24px;
-}
-
-.hero-avatar span {
-  font-family: var(--font-sans);
-  font-size: 22px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: -0.02em;
+  display: block;
 }
 
 .hero-name {
