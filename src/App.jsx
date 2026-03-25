@@ -163,7 +163,15 @@ export default function App() {
             aria-label={drawerOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={drawerOpen}
           >
-            <span /><span /><span />
+            <svg className="hamburger-icon hamburger-bars" width="20" height="14" viewBox="0 0 20 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <line x1="0" y1="1"  x2="20" y2="1"  />
+              <line x1="0" y1="7"  x2="20" y2="7"  />
+              <line x1="0" y1="13" x2="20" y2="13" />
+            </svg>
+            <svg className="hamburger-icon hamburger-x" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <line x1="1" y1="1" x2="15" y2="15" />
+              <line x1="15" y1="1" x2="1"  y2="15" />
+            </svg>
           </button>
         </div>
       </header>
@@ -176,7 +184,10 @@ export default function App() {
       {/* Mobile drawer */}
       <div className={`drawer${drawerOpen ? ' drawer-open' : ''}`} aria-hidden={!drawerOpen}>
         <button className="drawer-close" onClick={() => setDrawerOpen(false)} aria-label="Fechar menu">
-          ✕
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            <line x1="1" y1="1" x2="15" y2="15" />
+            <line x1="15" y1="1" x2="1"  y2="15" />
+          </svg>
         </button>
         <nav aria-label="Menu mobile">
           <ul className="drawer-nav">

@@ -100,24 +100,22 @@ body {
   background: var(--tag-bg);
 }
 
-.hamburger span {
+.hamburger-icon {
   display: block;
-  width: 20px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform 0.2s, opacity 0.2s;
-  transform-origin: center;
+  color: inherit;
+  transition: opacity 0.15s;
 }
 
-.hamburger.is-open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.hamburger-x {
+  display: none;
 }
-.hamburger.is-open span:nth-child(2) {
-  opacity: 0;
+
+.hamburger.is-open .hamburger-bars {
+  display: none;
 }
-.hamburger.is-open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+
+.hamburger.is-open .hamburger-x {
+  display: block;
 }
 
 /* ── Drawer overlay ── */
