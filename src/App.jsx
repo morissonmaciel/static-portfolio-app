@@ -126,8 +126,8 @@ const apps = [
   {
     id: 'photo-gemini',
     name: 'Photo Gemini',
-    tagline: 'Análise de imagens com IA generativa',
-    description: 'Envie qualquer foto e obtenha análises detalhadas com Gemini AI. Disponível no iPhone, iPad e Mac.',
+    tagline: 'Gerencie fotos duplicadas com privacidade',
+    description: 'Identifica e remove fotos duplicadas e semelhantes da sua fototeca. Totalmente local — nenhum dado enviado para servidores externos.',
     platforms: ['iOS', 'macOS'],
     appStoreUrl: 'https://apps.apple.com/us/app/photo-gemini/id6736348808',
   },
