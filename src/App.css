@@ -7,7 +7,7 @@
   --border: #e6e6e6;
   --accent: #1a8917;
   --tag-bg: #f2f2f2;
-  --max-width: 728px;
+  --max-width: 800px;
   --font-serif: Georgia, Charter, 'Times New Roman', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -40,12 +40,12 @@ body {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
-  padding: 0 24px;
 }
 
 .topbar-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -437,7 +437,7 @@ body {
 
 /* ── Footer ── */
 .footer {
-  padding: 40px 24px;
+  padding: 40px 0;
   text-align: center;
   border-top: 1px solid var(--border);
   margin-top: 0;
@@ -446,6 +446,7 @@ body {
 .footer-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 24px;
 }
 
 .footer-contact {
