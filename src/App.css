@@ -559,7 +559,7 @@ body {
 }
 
 /* ── Responsive ── */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   body {
     font-size: 19px;
   }
@@ -647,10 +647,27 @@ body {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+
+  /* App card — match body text scale */
+  .app-card-name {
+    font-size: 18px;
+  }
+
+  .app-card-tagline {
+    font-size: 16px;
+  }
+
+  .app-card-desc {
+    font-size: 19px;
+  }
+
+  .app-platform-tag {
+    font-size: 14px;
+  }
 }
 
 /* Desktop: hide drawer elements */
-@media (min-width: 601px) {
+@media (min-width: 769px) {
   .hamburger {
     display: none;
   }
