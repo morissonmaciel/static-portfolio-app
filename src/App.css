@@ -474,7 +474,7 @@ body {
 /* ── Responsive ── */
 @media (max-width: 600px) {
   body {
-    font-size: 17px;
+    font-size: 19px;
   }
 
   /* Show hamburger, hide desktop nav */
@@ -494,13 +494,13 @@ body {
     font-size: 22px;
   }
 
-  /* Content text floors */
+  /* Serif content text — 19px to match optical size of Inter at same px */
   .about-text {
-    font-size: 17px;
+    font-size: 19px;
   }
 
   .exp-desc {
-    font-size: 16px;
+    font-size: 19px;
   }
 
   .exp-company {
