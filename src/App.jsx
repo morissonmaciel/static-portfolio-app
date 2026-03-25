@@ -282,14 +282,13 @@ export default function App() {
               {apps.map((app) => (
                 <div key={app.id} className="app-card">
                   <div className="app-card-body">
-                    <div className="app-card-icon" aria-hidden="true">
-                      <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="60" height="60" rx="13" fill="#1a1a1a"/>
-                        <circle cx="30" cy="22" r="8" fill="white" opacity="0.9"/>
-                        <ellipse cx="30" cy="42" rx="13" ry="7" fill="white" opacity="0.6"/>
-                        <circle cx="30" cy="22" r="4" fill="#1a1a1a" opacity="0.5"/>
-                      </svg>
-                    </div>
+                    <img
+                      src="/photo-gemini-icon.png"
+                      alt="Photo Gemini icon"
+                      className="app-card-icon"
+                      width="60"
+                      height="60"
+                    />
                     <div className="app-card-info">
                       <div className="app-card-name">{app.name}</div>
                       <div className="app-card-tagline">{app.tagline}</div>
