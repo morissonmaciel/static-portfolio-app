@@ -471,6 +471,91 @@ body {
   margin-top: 16px;
 }
 
+/* ── App Cards ── */
+.app-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-card-body {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.app-card-icon {
+  flex-shrink: 0;
+  border-radius: 13px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.app-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app-card-name {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.app-card-tagline {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.app-card-platforms {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.app-platform-tag {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(26, 137, 23, 0.08);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.app-card-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.app-store-badge {
+  display: inline-block;
+  line-height: 0;
+  transition: opacity 0.15s;
+}
+
+.app-store-badge:hover {
+  opacity: 0.8;
+}
+
+.app-store-badge img {
+  height: 40px;
+  width: auto;
+}
+
 /* ── Responsive ── */
 @media (max-width: 600px) {
   body {
@@ -504,51 +589,51 @@ body {
   }
 
   .exp-company {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .exp-role {
-    font-size: 15px;
+    font-size: 16px;
   }
 
-  /* Small labels — minimum 13px */
+  /* UI labels — bumped +1-2px for proportion with 19px body */
   .section-title {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .tag {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .exp-meta {
-    font-size: 14px;
+    font-size: 15px;
     text-align: left;
     white-space: normal;
   }
 
   .lang-list li,
   .cert-list li {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .lang-level {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .edu-school {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .edu-degree {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .footer-contact {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .footer-copy {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .exp-header {

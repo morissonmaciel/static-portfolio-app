@@ -116,9 +116,21 @@ function IconPin() {
 
 const navLinks = [
   { href: '#sobre', label: 'Sobre' },
+  { href: '#apps', label: 'Apps & Sites' },
   { href: '#experiencia', label: 'Experiência' },
   { href: '#formacao', label: 'Formação' },
   { href: '#contato', label: 'Contato' },
+]
+
+const apps = [
+  {
+    id: 'photo-gemini',
+    name: 'Photo Gemini',
+    tagline: 'Análise de imagens com IA generativa',
+    description: 'Envie qualquer foto e obtenha análises detalhadas com Gemini AI. Disponível no iPhone, iPad e Mac.',
+    platforms: ['iOS', 'macOS'],
+    appStoreUrl: 'https://apps.apple.com/us/app/photo-gemini/id6736348808',
+  },
 ]
 
 export default function App() {
@@ -259,6 +271,50 @@ export default function App() {
             <div className="tags" aria-label="Competências técnicas">
               {skills.map((skill) => (
                 <span key={skill} className="tag">{skill}</span>
+              ))}
+            </div>
+          </section>
+
+          {/* Apps & Sites */}
+          <section id="apps" className="section">
+            <h2 className="section-title">Apps &amp; Sites</h2>
+            <div className="app-cards">
+              {apps.map((app) => (
+                <div key={app.id} className="app-card">
+                  <div className="app-card-body">
+                    <div className="app-card-icon" aria-hidden="true">
+                      <svg viewBox="0 0 60 60" width="60" height="60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="60" height="60" rx="13" fill="#1a1a1a"/>
+                        <circle cx="30" cy="22" r="8" fill="white" opacity="0.9"/>
+                        <ellipse cx="30" cy="42" rx="13" ry="7" fill="white" opacity="0.6"/>
+                        <circle cx="30" cy="22" r="4" fill="#1a1a1a" opacity="0.5"/>
+                      </svg>
+                    </div>
+                    <div className="app-card-info">
+                      <div className="app-card-name">{app.name}</div>
+                      <div className="app-card-tagline">{app.tagline}</div>
+                      <div className="app-card-platforms">
+                        {app.platforms.map((p) => (
+                          <span key={p} className="app-platform-tag">{p}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="app-card-desc">{app.description}</p>
+                  <a
+                    href={app.appStoreUrl}
+                    className="app-store-badge"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Download ${app.name} on the App Store`}
+                  >
+                    <img
+                      src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us"
+                      alt="Download on the App Store"
+                      height="40"
+                    />
+                  </a>
+                </div>
               ))}
             </div>
           </section>
