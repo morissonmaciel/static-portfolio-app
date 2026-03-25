@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import './App.css'
 
 const skills = [
@@ -113,23 +114,80 @@ function IconPin() {
   )
 }
 
+const navLinks = [
+  { href: '#sobre', label: 'Sobre' },
+  { href: '#experiencia', label: 'Experiência' },
+  { href: '#formacao', label: 'Formação' },
+  { href: '#contato', label: 'Contato' },
+]
+
 export default function App() {
+  const [drawerOpen, setDrawerOpen] = useState(false)
+
+  // Close drawer on Escape key
+  useEffect(() => {
+    if (!drawerOpen) return
+    const onKey = (e) => { if (e.key === 'Escape') setDrawerOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [drawerOpen])
+
+  // Prevent body scroll when drawer is open
+  useEffect(() => {
+    document.body.style.overflow = drawerOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [drawerOpen])
+
+  const handleNavClick = () => setDrawerOpen(false)
+
   return (
     <>
       {/* Topbar */}
       <header className="topbar">
         <div className="topbar-inner">
           <a href="#topo" className="topbar-name">Morisson Maciel</a>
-          <nav>
+
+          {/* Desktop nav */}
+          <nav className="topbar-nav-desktop" aria-label="Navegação principal">
             <ul className="topbar-nav">
-              <li><a href="#sobre">Sobre</a></li>
-              <li><a href="#experiencia">Experiência</a></li>
-              <li><a href="#formacao">Formação</a></li>
-              <li><a href="#contato">Contato</a></li>
+              {navLinks.map(({ href, label }) => (
+                <li key={href}><a href={href}>{label}</a></li>
+              ))}
             </ul>
           </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            className={`hamburger${drawerOpen ? ' is-open' : ''}`}
+            onClick={() => setDrawerOpen((v) => !v)}
+            aria-label={drawerOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={drawerOpen}
+          >
+            <span /><span /><span />
+          </button>
         </div>
       </header>
+
+      {/* Mobile drawer overlay */}
+      {drawerOpen && (
+        <div className="drawer-overlay" onClick={() => setDrawerOpen(false)} aria-hidden="true" />
+      )}
+
+      {/* Mobile drawer */}
+      <div className={`drawer${drawerOpen ? ' drawer-open' : ''}`} aria-hidden={!drawerOpen}>
+        <button className="drawer-close" onClick={() => setDrawerOpen(false)} aria-label="Fechar menu">
+          ✕
+        </button>
+        <nav aria-label="Menu mobile">
+          <ul className="drawer-nav">
+            {navLinks.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} onClick={handleNavClick}>{label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
 
       <main>
         <div className="content">

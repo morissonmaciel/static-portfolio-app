@@ -80,6 +80,127 @@ body {
   color: var(--text);
 }
 
+/* ── Hamburger button (mobile only) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.hamburger:hover {
+  background: var(--tag-bg);
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+  transform-origin: center;
+}
+
+.hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Drawer overlay ── */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(0, 0, 0, 0.35);
+  animation: fade-in 0.2s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Drawer panel ── */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 200;
+  width: 260px;
+  height: 100%;
+  background: var(--bg);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
+  transform: translateX(100%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 32px;
+}
+
+.drawer.drawer-open {
+  transform: translateX(0);
+}
+
+.drawer-close {
+  align-self: flex-end;
+  margin-right: 20px;
+  margin-bottom: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.drawer-close:hover {
+  background: var(--tag-bg);
+  color: var(--text);
+}
+
+.drawer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-nav a {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+
+.drawer-nav a:hover {
+  background: var(--tag-bg);
+  color: var(--accent);
+}
+
 /* ── Main content ── */
 .content {
   max-width: var(--max-width);
@@ -355,15 +476,16 @@ body {
 /* ── Responsive ── */
 @media (max-width: 600px) {
   body {
-    font-size: 15px;
+    font-size: 17px;
   }
 
-  .topbar-nav {
-    gap: 16px;
+  /* Show hamburger, hide desktop nav */
+  .hamburger {
+    display: flex;
   }
 
-  .topbar-nav a {
-    font-size: 15px;
+  .topbar-nav-desktop {
+    display: none;
   }
 
   .hero {
@@ -374,32 +496,24 @@ body {
     font-size: 22px;
   }
 
-  .hero-subtitle {
-    font-size: 15px;
-  }
-
-  .hero-link {
-    font-size: 15px;
-  }
-
-  /* Content text — minimum 15px */
+  /* Content text floors */
   .about-text {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .exp-desc {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .exp-company {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .exp-role {
     font-size: 15px;
   }
 
-  /* Small labels — bump from 12–13px to 14px floor */
+  /* Small labels — minimum 13px */
   .section-title {
     font-size: 13px;
   }
@@ -416,7 +530,7 @@ body {
 
   .lang-list li,
   .cert-list li {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .lang-level {
@@ -424,7 +538,7 @@ body {
   }
 
   .edu-school {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .edu-degree {
@@ -436,7 +550,7 @@ body {
   }
 
   .footer-copy {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .exp-header {
@@ -447,5 +561,17 @@ body {
   .grid-2col {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+}
+
+/* Desktop: hide drawer elements */
+@media (min-width: 601px) {
+  .hamburger {
+    display: none;
+  }
+
+  .drawer,
+  .drawer-overlay {
+    display: none !important;
   }
 }
