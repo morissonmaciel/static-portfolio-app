@@ -560,8 +560,23 @@ body {
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  /*
+   * Fluid typography: decreasing function so portrait phones (~390px)
+   * get 19px and landscape phones (~768px) get 17px.
+   * Formula: clamp(17px, calc(21.1px - 0.53vw), 19px)
+   *   390px → 19px  |  600px → 18px  |  768px → 17px
+   */
   body {
-    font-size: 19px;
+    font-size: clamp(17px, calc(21.1px - 0.53vw), 19px);
+  }
+
+  /* Reading text inherits body's fluid size */
+  .about-text {
+    font-size: inherit;
+  }
+
+  .exp-desc {
+    font-size: inherit;
   }
 
   /* Show hamburger, hide desktop nav */
@@ -577,17 +592,9 @@ body {
     padding: 40px 0 40px;
   }
 
+  /* Hero name: fluid 20–22px (proportional to body) */
   .hero-name {
-    font-size: 22px;
-  }
-
-  /* Serif content text — 19px to match optical size of Inter at same px */
-  .about-text {
-    font-size: 19px;
-  }
-
-  .exp-desc {
-    font-size: 19px;
+    font-size: clamp(20px, calc(24px - 0.52vw), 22px);
   }
 
   .exp-company {
@@ -598,7 +605,7 @@ body {
     font-size: 16px;
   }
 
-  /* UI labels — bumped +1-2px for proportion with 19px body */
+  /* UI labels — fixed, already well-proportioned */
   .section-title {
     font-size: 14px;
   }
@@ -648,17 +655,17 @@ body {
     gap: 24px;
   }
 
-  /* App card — match body text scale */
+  /* App card — desc inherits fluid body size; name/tagline fluid */
+  .app-card-desc {
+    font-size: inherit;
+  }
+
   .app-card-name {
-    font-size: 18px;
+    font-size: clamp(16px, calc(20px - 0.52vw), 18px);
   }
 
   .app-card-tagline {
     font-size: 16px;
-  }
-
-  .app-card-desc {
-    font-size: 19px;
   }
 
   .app-platform-tag {
